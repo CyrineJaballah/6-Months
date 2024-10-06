@@ -146,6 +146,9 @@
     </div>
 
     <script>
+        // Add hearts on page load
+        window.onload = addHearts;
+
         function showNext(step) {
             const currentDiv = document.querySelector('.visible');
             const nextDiv = document.getElementById(step);
@@ -154,11 +157,6 @@
                 currentDiv.style.display = 'none';
                 nextDiv.style.display = 'block'; 
                 nextDiv.classList.add('visible');
-
-                // Add heart animations when reaching the last step
-                if (step === 'step8') {
-                    addHearts();
-                }
             }, 500); 
         }
 

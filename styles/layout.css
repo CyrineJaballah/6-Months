@@ -1,0 +1,42 @@
+body {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    background-color: rgb(255, 239, 255);
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    padding: 30px;
+    width: 600px;
+    /* Fixed width */
+    height: 400px;
+    /* Fixed height */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+    overflow: hidden;
+    /* Ensure content doesn't overflow */
+}
+
+.container:hover {
+    transform: scale(1.02);
+}
+
+.section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+    height: 75%;
+    /* Ensure sections take full height of container */
+}
+
+.visible {
+    display: block;
+    opacity: 1;
+}

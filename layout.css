@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300&display=swap');
+
 body {
     overflow: hidden;
     display: flex;
@@ -5,38 +7,107 @@ body {
     justify-content: center;
     height: 100vh;
     position: relative;
-    background-image: url('https://mrwallpaper.com/images/hd/cute-pc-background-idea-ec9bc16g92po0iac.jpg');
-    font-family: 'Arial', sans-serif;
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Roboto', sans-serif;
     color: #fff;
+    animation: backgroundAnimation 10s infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        filter: brightness(1);
+    }
+
+    100% {
+        filter: brightness(0.8);
+    }
 }
 
 .container {
-    background: rgba(0, 0, 0, 0.6);
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.8), rgba(255, 182, 193, 0.8));
     border-radius: 15px;
     padding: 1.5%;
     width: 60%;
-
     height: 50%;
-
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
+    box-shadow: 0 4px 20px rgb(29, 9, 9);
+    transition: transform 0.3s, box-shadow 0.3s;
     overflow: hidden;
+    animation: containerAnimation 1s ease-in-out;
+}
 
+@keyframes containerAnimation {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .container:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
 .section {
     display: none;
     opacity: 0;
-    transition: opacity 0.5s;
+    transition: opacity 0.5s, transform 0.5s;
     height: 75%;
-
 }
 
 .visible {
     display: block;
     opacity: 1;
+    transform: translateY(0);
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3em;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+    color: #fff;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+    animation: fadeIn 1s ease-in-out;
+    color: #fff;
+}
+
+button {
+    background: linear-gradient(45deg, #ff5e6c, #ff3b4f);
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #ff3b4f;
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

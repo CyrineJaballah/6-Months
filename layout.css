@@ -82,24 +82,6 @@ p {
     color: #fff;
 }
 
-button {
-    background: linear-gradient(45deg, #ff5e6c, #ff3b4f);
-    border: none;
-    color: white;
-    padding: 15px 20px;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: background-color 0.3s, transform 0.3s;
-    margin: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-button:hover {
-    background-color: #ff3b4f;
-    transform: scale(1.05);
-}
-
 @keyframes fadeIn {
     0% {
         opacity: 0;

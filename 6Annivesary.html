@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://mrwallpaper.com/images/hd/cute-pc-background-idea-ec9bc16g92po0iac.jpg'); 
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: scale(1.02);
+        }
+        .section {
+            display: none; 
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .visible {
+            display: block;
+            opacity: 1;
+        }
+        button {
+            background-color: #ff5e6c;
+            border: none;
+            color: white;
+            padding: 15px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #ff3b4f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The best 6 months i've ever had in my whole life</h1>
+        <div id="step1" class="section visible">
+            <p>Remember when we first started talking again?</p>
+            <button onclick="showNext('step2')">Next</button>
+        </div>
+        <div id="step2" class="section">
+            <p>Our first date was unforgettable. I still remember how cute you looked and how nice you were to me. It made me wanna cry so badly because 
+                at that exact moment i know exactly why i've always wanted to be with you.
+            </p>
+            <button onclick="showPrevious('step1')">Previous</button>
+            <button onclick="showNext('step3')">Next</button>
+        </div>
+        <div id="step3" class="section">
+            <p>I wanna start by thanking you for being the greatest boyfriend anyone could ever ask for. I'm really grateful for having you and waking up everyday 
+                knowing that you're mine. I love you so much!
+            </p>
+            <button onclick="showPrevious('step2')">Previous</button>
+            <button onclick="showNext('step4')">Next</button>
+        </div>
+        <div id="step4" class="section">
+            <p>You make me laugh like no one else does, with your quirkiness and your cuteness. you light up my day so easily</p>
+            <button onclick="showPrevious('step3')">Previous</button>
+            <button onclick="showNext('step5')">Next</button>
+        </div>
+        <div id="step5" class="section">
+            <p>Our late-night conversations are my favorite, when i'd randomly wake up and we'd start talking about random stuff you know, i loved every 
+                single one of those moments.
+            </p>
+            <button onclick="showPrevious('step4')">Previous</button>
+            <button onclick="showNext('step6')">Next</button>
+        </div>
+        <div id="step6" class="section">
+            <p>Your kindness and compassion inspire me every day, the way you always see the good in people and you always wanna help people it's really truly 
+                inspiring and it's one of the many reasons why i love you so much.
+            </p>
+            <button onclick="showPrevious('step5')">Previous</button>
+            <button onclick="showNext('step7')">Next</button>
+        </div>
+        <div id="step7" class="section">
+            <p>You're in a bad mood right now in the vc as i'm finishing up this small "project" because you think you're "useless" or whatever your dumb brain is 
+                trying to tell you and i'm sorry that lately life has been hard, relationship and social life wise, but i promise you that i'll always be here for you, 
+                no matter what. No matter what happens, i'll never leave you like I did before. it still haunts me to this day that I did that to you 
+                and it cost me losing you. it genuinely ruined me and i'm really sorry for that. You can always share your feelings with me, 
+                i'll always be here to listen to you and to help you through whatever you're going through.
+            </p>
+            <button onclick="showPrevious('step6')">Previous</button>
+            <button onclick="showNext('step8')">Next</button>
+        </div>
+        <div id="step8" class="section">
+            <p>Happy 6 Months Anniversary my love! I love you more than words can express ♥</p>
+            <button onclick="showPrevious('step7')">Previous</button>
+        </div>
+    </div>
+
+    <script>
+        function showNext(step) {
+            const currentDiv = document.querySelector('.visible');
+            const nextDiv = document.getElementById(step);
+            currentDiv.classList.remove('visible');
+            setTimeout(() => {
+                currentDiv.style.display = 'none';
+                nextDiv.style.display = 'block'; 
+                nextDiv.classList.add('visible');
+            }, 500); 
+        }
+
+        function showPrevious(step) {
+            const currentDiv = document.querySelector('.visible');
+            const prevDiv = document.getElementById(step);
+            currentDiv.classList.remove('visible');
+            setTimeout(() => {
+                currentDiv.style.display = 'none'; 
+                prevDiv.style.display = 'block'; 
+                prevDiv.classList.add('visible');
+            }, 500); 
+        }
+    </script>
+</body>
+</html>

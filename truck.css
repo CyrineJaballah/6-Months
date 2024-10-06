@@ -1,11 +1,14 @@
 .truck-container {
     position: relative;
-    animation: drive 5s linear infinite;
+    animation: drive 10s linear infinite;
+
 }
 
 .box {
-    width: 100px;
-    height: 50px;
+    width: 200px;
+
+    height: 100px;
+
     background: #d78a8a;
     position: relative;
     border-radius: 5px;
@@ -13,30 +16,40 @@
 
 .tyre {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 40px;
+
+    height: 40px;
+
     background: #333;
     border-radius: 50%;
 }
 
 .tyre1 {
-    bottom: -10px;
-    left: 10px;
+    bottom: -20px;
+
+    left: 20px;
+
 }
 
 .tyre2 {
-    bottom: -10px;
-    right: 10px;
+    bottom: -20px;
+
+    right: 20px;
+
 }
 
 .tyre3 {
-    bottom: -10px;
-    left: 30px;
+    bottom: -20px;
+
+    left: 60px;
+
 }
 
 .tyre4 {
-    bottom: -10px;
-    right: 30px;
+    bottom: -20px;
+
+    right: 60px;
+
 }
 
 @keyframes drive {

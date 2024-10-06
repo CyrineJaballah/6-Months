@@ -13,6 +13,7 @@
             text-align: center;
             padding: 20px;
             margin: 0;
+            overflow: hidden; /* Prevents scrollbars from appearing */
         }
         .container {
             background: rgba(0, 0, 0, 0.6);
@@ -49,54 +50,91 @@
         button:hover {
             background-color: #ff3b4f;
         }
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff5e6c;
+            transform: rotate(45deg);
+            opacity: 0.7;
+            animation: float 3s infinite;
+        }
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff5e6c;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>The best 6 months i've ever had in my whole life</h1>
+        <h1>The best 6 months I've ever had in my whole life</h1>
         <div id="step1" class="section visible">
             <p>Remember when we first started talking again?</p>
             <button onclick="showNext('step2')">Next</button>
         </div>
         <div id="step2" class="section">
             <p>Our first date was unforgettable. I still remember how cute you looked and how nice you were to me. It made me wanna cry so badly because 
-                at that exact moment i know exactly why i've always wanted to be with you.
+                at that exact moment I knew exactly why I've always wanted to be with you.
             </p>
             <button onclick="showPrevious('step1')">Previous</button>
             <button onclick="showNext('step3')">Next</button>
         </div>
         <div id="step3" class="section">
-            <p>I wanna start by thanking you for being the greatest boyfriend anyone could ever ask for. I'm really grateful for having you and waking up everyday 
+            <p>I wanna start by thanking you for being the greatest boyfriend anyone could ever ask for. I'm really grateful for having you and waking up every day 
                 knowing that you're mine. I love you so much!
             </p>
             <button onclick="showPrevious('step2')">Previous</button>
             <button onclick="showNext('step4')">Next</button>
         </div>
         <div id="step4" class="section">
-            <p>You make me laugh like no one else does, with your quirkiness and your cuteness. you light up my day so easily</p>
+            <p>You make me laugh like no one else does, with your quirkiness and your cuteness. You light up my day so easily.</p>
             <button onclick="showPrevious('step3')">Previous</button>
             <button onclick="showNext('step5')">Next</button>
         </div>
         <div id="step5" class="section">
-            <p>Our late-night conversations are my favorite, when i'd randomly wake up and we'd start talking about random stuff you know, i loved every 
+            <p>Our late-night conversations are my favorite. When I'd randomly wake up, and we'd start talking about random stuff, I loved every 
                 single one of those moments.
             </p>
             <button onclick="showPrevious('step4')">Previous</button>
             <button onclick="showNext('step6')">Next</button>
         </div>
         <div id="step6" class="section">
-            <p>Your kindness and compassion inspire me every day, the way you always see the good in people and you always wanna help people it's really truly 
-                inspiring and it's one of the many reasons why i love you so much.
+            <p>Your kindness and compassion inspire me every day. The way you always see the good in people and want to help others is really truly 
+                inspiring, and it's one of the many reasons why I love you so much.
             </p>
             <button onclick="showPrevious('step5')">Previous</button>
             <button onclick="showNext('step7')">Next</button>
         </div>
         <div id="step7" class="section">
-            <p>You're in a bad mood right now in the vc as i'm finishing up this small "project" because you think you're "useless" or whatever your dumb brain is 
-                trying to tell you and i'm sorry that lately life has been hard, relationship and social life wise, but i promise you that i'll always be here for you, 
-                no matter what. No matter what happens, i'll never leave you like I did before. it still haunts me to this day that I did that to you 
-                and it cost me losing you. it genuinely ruined me and i'm really sorry for that. You can always share your feelings with me, 
-                i'll always be here to listen to you and to help you through whatever you're going through.
+            <p>You're in a bad mood right now in the VC as I'm finishing up this small "project" because you think you're "useless" or whatever your dumb brain is 
+                trying to tell you. I'm sorry that lately life has been hard, relationship and social life-wise, but I promise you that I'll always be here for you, 
+                no matter what. No matter what happens, I'll never leave you like I did before. It still haunts me to this day that I did that to you 
+                and it cost me losing you. It genuinely ruined me, and I'm really sorry for that. You can always share your feelings with me; 
+                I'll always be here to listen to you and to help you through whatever you're going through.
             </p>
             <button onclick="showPrevious('step6')">Previous</button>
             <button onclick="showNext('step8')">Next</button>
@@ -116,6 +154,11 @@
                 currentDiv.style.display = 'none';
                 nextDiv.style.display = 'block'; 
                 nextDiv.classList.add('visible');
+
+                // Add heart animations when reaching the last step
+                if (step === 'step8') {
+                    addHearts();
+                }
             }, 500); 
         }
 
@@ -128,6 +171,27 @@
                 prevDiv.style.display = 'block'; 
                 prevDiv.classList.add('visible');
             }, 500); 
+        }
+
+        function addHearts() {
+            const heartCount = 20; // Number of hearts to create
+            for (let i = 0; i < heartCount; i++) {
+                createHeart();
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = Math.random() * window.innerHeight + 'px';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's'; // Random float duration
+            document.body.appendChild(heart);
+            
+            // Remove heart after animation ends
+            heart.addEventListener('animationend', () => {
+                heart.remove();
+            });
         }
     </script>
 </body>
